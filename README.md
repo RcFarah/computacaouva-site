@@ -101,5 +101,5 @@ Focused on robustness and integrity, the project implements:
 
 ## 📜 License
 
-© 2026 Rodrigo Farah / UVA Computing Athletics.
+© 2026 Rodrigo Farah / Atlética Computação UVA.
 All rights reserved. Unauthorized copying or reproduction of this code is prohibited.
