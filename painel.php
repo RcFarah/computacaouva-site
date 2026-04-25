@@ -422,11 +422,11 @@ $membros = $stmt_membros->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($jogos as $jogo): ?>
                     <tr>
                         <td><?= date('d/m/Y', strtotime($jogo['data_jogo'])) ?></td>
-                        <td><strong><?= $jogo['modalidade'] ?></strong></td>
-                        <td><?= $jogo['adversario'] ?></td>
+                        <td><strong><?= htmlspecialchars($jogo['modalidade']) ?></strong></td>
+                        <td><?= htmlspecialchars($jogo['adversario']) ?></td>
                         <td
                             style="color: <?= $jogo['status'] == 'CANCELADO' ? '#ff4444' : '#00ff88' ?>; font-weight: bold;">
-                            <?= $jogo['status'] ?>
+                            <?= htmlspecialchars($jogo['status']) ?>
                         </td>
                         <td style="color: #aaa; font-style: italic;">
                             <?= htmlspecialchars($jogo['resultado'] ?? 'Aguardando') ?>
@@ -515,9 +515,9 @@ $membros = $stmt_membros->fetchAll(PDO::FETCH_ASSOC);
                     $primeira_img = explode(',', $prod['imagem'])[0];
                     ?>
                     <tr>
-                        <td><img src="<?= trim($primeira_img) ?>" alt="Thumb"
+                        <td><img src="<?= htmlspecialchars(trim($primeira_img)) ?>" alt="Thumb"
                                 style="width: 40px; border-radius: 5px; background: #111;"></td>
-                        <td><strong><?= $prod['nome'] ?></strong></td>
+                        <td><strong><?= htmlspecialchars($prod['nome']) ?></strong></td>
                         <td style="color: var(--cor-ciano-neon); font-weight: bold;">R$
                             <?= number_format($prod['preco'], 2, ',', '.') ?>
                         </td>
