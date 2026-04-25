@@ -1,0 +1,1954 @@
+/* =========================================
+   1. RESET E VARIÁVEIS DE COR
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --cor-ciano-neon: #26e4e3;
+    --cor-preto-puro: #000000;
+    --cor-fundo-página: #021a1a;
+    --cor-fundo-card: #083d3d;
+}
+
+/* =========================================
+   2. BACKGROUND E PERSONAGEM NAS LATERAIS
+   ========================================= */
+body {
+    font-family: Poppins, sans-serif;
+    background-color: var(--cor-fundo-página);
+    color: #ffffff;
+    line-height: 1.5;
+    position: relative;
+    z-index: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+.subtitulo-branco-glow,
+.texto-sombra-ciano,
+.titulo-verso,
+.letra-pisca {
+    font-family: Barlow Semi Condensed, sans-serif;
+
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/ui/mascote.svg');
+    background-size: 250% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* =========================================
+   3. MENU SUPERIOR 
+   ========================================= */
+#menu-superior {
+    background-color: var(--cor-preto-puro);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    color: var(--cor-preto-puro);
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background-color: var(--cor-ciano-neon);
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    font-weight: 900;
+    color: var(--cor-ciano-neon);
+    box-shadow: 0 0 15px rgba(38, 228, 227, 0.6);
+    transform: scale(1.05);
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   4. CORREDOR CENTRAL E TEXTOS DA HOME
+   ========================================= */
+#conteudo-dinamico {
+    margin-top: 90px;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    /* NOVAS LINHAS: Transforma o contentor num elástico */
+    display: flex;
+    flex-direction: column;
+}
+
+/* NOVA REGRA (Adicione logo abaixo): Garante que todas as abas (Home, Esportes, etc) estiquem */
+#conteudo-dinamico>section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container-centralizado {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--cor-preto-puro);
+    padding: 60px;
+    min-height: 100vh;
+    /* Pode deixar este ou apagar, o flex vai resolver */
+    position: relative;
+    z-index: 1;
+    /* NOVAS LINHAS: A caixa preta agora estica até ao fim */
+    flex: 1;
+    width: 100%;
+}
+
+.container-centralizado::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/ui/circuito.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.titulo-principal-vazado {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--cor-ciano-neon);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    line-height: 1.1;
+}
+
+.mascote-topo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.mascote-topo img {
+    max-width: 700px;
+    width: 100%;
+}
+
+.subtitulo-branco-glow {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.texto-introdutorio p {
+    color: var(--cor-ciano-neon);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* =========================================
+   5. SEÇÃO MODALIDADES (Flip Card 3D)
+   ========================================= */
+.container-cards-modalidades {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 380px;
+    height: 480px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background-color: var(--cor-preto-puro);
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    mask-image: linear-gradient(to top, transparent 5%, black 40%);
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, black 40%);
+}
+
+.texto-sombra-ciano {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: var(--cor-ciano-neon);
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(38, 228, 227, 0.8), 0 0 30px rgba(0, 0, 0, 1);
+}
+
+.flip-card-back {
+    background-color: var(--cor-fundo-card);
+    color: #ffffff;
+    transform: rotateY(180deg);
+    border: 2px solid var(--cor-ciano-neon);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 30px;
+}
+
+.titulo-verso {
+    color: var(--cor-ciano-neon);
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.flip-card-back ul {
+    list-style: none;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.flip-card-back ul li {
+    display: flex;
+    align-items: center;
+}
+
+.flip-card-back ul li strong {
+    margin-right: 8px;
+}
+
+.flip-card-back ul li::before {
+    content: "•";
+    margin-right: 10px;
+    color: var(--cor-ciano-neon);
+    font-size: 1.5rem;
+}
+
+.texto-saber-mais {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.btn-mais-info {
+    background-color: #0b6b6b;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px;
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-mais-info:hover {
+    background-color: var(--cor-ciano-neon);
+    color: var(--cor-preto-puro);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   6. RODAPÉ (FOOTER)
+   ========================================= */
+.rodape-principal {
+    background-color: var(--cor-preto-puro);
+    padding: 40px 0 20px 0;
+    margin-top: 0;
+    position: relative;
+    z-index: 3;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.social-item i {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.4s ease, transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.social-item span {
+    display: inline-block;
+    line-height: 1;
+    margin-top: 3px;
+}
+
+.social-item:hover i {
+    color: var(--cor-ciano-neon);
+    transform: scale(1.1);
+}
+
+.spotlight-target {
+    position: relative;
+    overflow: hidden;
+    --spot-color: rgba(36, 238, 238, 0.400);
+    --spot-radius: 75px;
+}
+
+.nav-btn.spotlight-target {
+    --spot-color: rgba(0, 0, 0, 0.712);
+    --spot-radius: 60px;
+    background-color: var(--cor-ciano-neon);
+    color: var(--cor-preto-puro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spotlight-target::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle var(--spot-radius) at var(--mouse-x) var(--mouse-y),
+            var(--spot-color),
+            transparent 80%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.spotlight-target:hover::before {
+    opacity: 1;
+}
+
+.nav-btn span,
+.nav-btn {
+    z-index: 2;
+    position: relative;
+}
+
+.nav-flex,
+.rodape-principal .container {
+    position: relative;
+    z-index: 2;
+}
+
+.nav-btn {
+    position: relative;
+    z-index: 3;
+}
+
+.footer-copyright {
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* =========================================
+   7. ANIMAÇÃO DE SCROLL PROPORCIONAL LATERAL
+   ========================================= */
+#menu-superior {
+    padding: calc(20px - (10px * var(--progress, 0))) 0;
+    clip-path: inset(0px calc((100% - var(--collapsed-width, 350px)) * var(--progress, 0)) 0px 0px round 0px 0px calc(40px * var(--progress, 0)) 0px);
+    box-shadow: 0 4px calc(15px * var(--progress, 0)) rgba(0, 0, 0, calc(0.6 * var(--progress, 0)));
+}
+
+.nav-flex {
+    position: relative;
+}
+
+.logo-header {
+    transform: translateX(calc(-1 * var(--slide-dist, 0px) * var(--progress, 0)));
+    position: relative;
+    z-index: 10;
+}
+
+.logo-header img {
+    width: 150px;
+    height: auto;
+}
+
+.nav-links {
+    opacity: calc(1 - (var(--progress, 0) * 1.5));
+    transform: translateX(calc(30px * var(--progress, 0)));
+}
+
+.menu-toggle-btn {
+    opacity: var(--progress, 0);
+    transform:
+        translateX(calc(-1 * var(--slide-dist, 0px) * var(--progress, 0))) rotate(calc(-90deg * (1 - var(--progress, 0))));
+    position: absolute;
+    left: 190px;
+    top: 50%;
+    margin-top: -22px;
+    background-color: var(--cor-ciano-neon);
+    border: none;
+    color: var(--cor-preto-puro);
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#menu-superior.is-collapsed .nav-links {
+    pointer-events: none;
+}
+
+#menu-superior:not(.is-collapsed) .menu-toggle-btn {
+    pointer-events: none;
+}
+
+.menu-toggle-btn.spotlight-target {
+    --spot-color: rgba(0, 0, 0, 0.35);
+    --spot-radius: 50px;
+}
+
+.menu-toggle-btn i {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   8. SEÇÃO DE PRODUTOS EM DESTAQUE (HOME)
+   ========================================= */
+.container-produtos-destaque {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.card-produto-home {
+    position: relative;
+    width: 380px;
+    height: 480px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--cor-preto-puro);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card-produto-home:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(38, 228, 227, 0.4);
+}
+
+.card-produto-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    mask-image: linear-gradient(to top, transparent 5%, black 40%);
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, black 40%);
+    transition: transform 0.5s ease;
+}
+
+.card-produto-home:hover img {
+    transform: scale(1.05);
+}
+
+.container-btn-central {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn-ver-todos {
+    background-color: var(--cor-ciano-neon);
+    color: var(--cor-preto-puro);
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 18px 50px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-ver-todos.spotlight-target {
+    --spot-color: rgba(0, 0, 0, 0.35);
+    --spot-radius: 120px;
+}
+
+.btn-ver-todos span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-ver-todos:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(38, 228, 227, 0.6);
+}
+
+/* =========================================
+   9. EFEITO GLOW PISCANTE (Letreiro Neon)
+   ========================================= */
+.letra-pisca {
+    display: inline-block;
+    animation: curto-circuito-neon 8s infinite;
+}
+
+@keyframes curto-circuito-neon {
+
+    0%,
+    78%,
+    84%,
+    100% {
+        color: #ffffff;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    79%,
+    81%,
+    83% {
+        color: var(--cor-ciano-neon);
+        text-shadow: 0 0 15px var(--cor-ciano-neon), 0 0 30px var(--cor-ciano-neon);
+    }
+}
+
+/* =========================================
+   10. SEÇÃO DE EVENTOS (EVENTOS PAGE)
+   ========================================= */
+.lista-eventos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.item-evento {
+    display: flex;
+    align-items: center;
+    background: rgba(38, 228, 227, 0.03);
+    border-left: 4px solid var(--cor-ciano-neon);
+    padding: 20px;
+    border-radius: 0 15px 15px 0;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.item-evento:hover {
+    transform: scale(1.02);
+    background: rgba(38, 228, 227, 0.08);
+}
+
+.data-evento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-right: 30px;
+}
+
+.data-evento .dia {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--cor-ciano-neon);
+    line-height: 1;
+}
+
+.data-evento .mes {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.info-evento h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.info-evento p {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-evento {
+    margin-left: auto;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+
+.status-aberto {
+    border-color: #00ff88;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff8844;
+}
+
+.status-encerrado {
+    border-color: #ff4444;
+    color: #ff4444;
+    opacity: 0.5;
+}
+
+/* =========================================
+   EVENTOS PASSADOS
+   ========================================= */
+.linha-divisoria-neon {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cor-ciano-neon), transparent);
+    opacity: 0.3;
+    margin: 50px 0 30px 0;
+}
+
+/* 1. O VILÃO FOI NEUTRALIZADO: Tiramos o opacity: 0.6 daqui */
+.eventos-passados {
+    opacity: 1;
+}
+
+.item-evento.item-passado {
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.item-evento.item-passado:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* 2. Deixamos apenas as letras apagadas, usando cor em vez de opacidade global */
+.item-evento.item-passado .data-evento .dia {
+    color: rgba(255, 255, 255, 0.5);
+    /* Dia cinza */
+}
+
+.item-evento.item-passado .info-evento h3 {
+    color: rgba(255, 255, 255, 0.6);
+    /* Título cinza (O Neon dentro dele não será afetado!) */
+}
+
+.item-evento.item-passado .info-evento p {
+    color: rgba(255, 255, 255, 0.3);
+    /* Local do jogo mais apagado */
+}
+
+/* Deixa a tag do campeonato VERDE néon no histórico para dar destaque, como no exemplo */
+.item-evento.item-passado .status-evento {
+    color: #00ff88 !important;
+    /* Verde Néon */
+    border-color: #00ff88 !important;
+    /* Verde Néon */
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.44) !important;
+    /* Glow Néon Verde */
+}
+
+/* =========================================
+   11. DESTAQUE PRÓXIMO EVENTO (HOME)
+   ========================================= */
+.destaque-proximo-evento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(38, 228, 227, 0.05);
+    border: 1px solid var(--cor-ciano-neon);
+    padding: 30px 40px;
+    border-radius: 50px;
+    width: fit-content;
+    margin: 0 auto 50px auto;
+    box-shadow: 0 0 15px rgba(38, 228, 227, 0.1);
+}
+
+.destaque-proximo-evento .label {
+    font-weight: 900;
+    color: var(--cor-ciano-neon);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.destaque-proximo-evento .evento-nome {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-mini-evento {
+    background-color: var(--cor-ciano-neon);
+    color: var(--cor-preto-puro);
+    border: none;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-mini-evento:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(38, 228, 227, 0.8);
+    letter-spacing: 1px;
+}
+
+/* ----- DESTAQUE HOME (Caixa Neon) -----*/
+#destaque-home-container {
+    background: rgba(0, 0, 0, 0.4);
+    /* Fundo levemente escurecido para destacar o texto */
+    border: 1px solid var(--cor-ciano-neon);
+    /* Borda fina na cor da Atlética */
+    border-radius: 20px;
+    /* Cantos arredondados e elegantes */
+    box-shadow: 0 0 20px rgba(38, 228, 227, 0.15), inset 0 0 10px rgba(38, 228, 227, 0.05);
+    /* Brilho externo e interno */
+    max-width: 800px;
+    /* Impede que o cartão fique esticado de ponta a ponta na tela */
+    margin: 0 auto 60px auto;
+    /* Centraliza a caixa perfeitamente no corredor */
+    transition: all 0.3s ease;
+    /* Prepara para a animação do hover */
+}
+
+/* Efeito de acender quando o mouse passa por cima! */
+#destaque-home-container:hover {
+    box-shadow: 0 0 30px rgba(38, 228, 227, 0.3), inset 0 0 15px rgba(38, 228, 227, 0.1);
+    transform: translateY(-3px);
+    border-color: #fff;
+    /* A borda pisca em branco sutilmente */
+}
+
+/* =========================================
+   12. PRÓXIMOS TREINOS (HOME)
+   ========================================= */
+.container-treinos-home {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.mini-card-treino {
+    display: flex;
+    align-items: center;
+    background-color: var(--cor-preto-puro);
+    border: 1px solid rgba(38, 228, 227, 0.2);
+    border-radius: 12px;
+    padding: 15px 20px;
+    width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+}
+
+.mini-card-treino:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(38, 228, 227, 0.15);
+    border-color: var(--cor-ciano-neon);
+}
+
+.treino-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 15px;
+    margin-right: 15px;
+}
+
+.treino-data .dia {
+    color: var(--cor-ciano-neon);
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.treino-data .mes {
+    font-size: 0.7rem;
+    font-weight: 700;
+    opacity: 0.7;
+}
+
+.treino-info h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+}
+
+.treino-info p {
+    color: var(--cor-ciano-neon);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.treino-status {
+    margin-left: auto;
+    font-size: 0.65rem;
+    font-weight: 900;
+    color: #00ff88;
+    background: rgba(0, 255, 136, 0.05);
+    padding: 6px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    text-align: center;
+}
+
+/* =========================================
+   13. PÁGINA DE ESPORTES (Catálogo e Galerias)
+   ========================================= */
+.secao-interna {
+    padding-top: 40px;
+    /* Apagámos o padding-bottom: 80px; que empurrava o rodapé! */
+}
+
+.bloco-esporte {
+    display: flex;
+    gap: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(38, 228, 227, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.4s ease;
+}
+
+.bloco-esporte:hover {
+    border-color: rgba(38, 228, 227, 0.6);
+}
+
+.esporte-galeria {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.foto-destaque {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--cor-ciano-neon);
+    background-color: #111;
+}
+
+.esporte-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.texto-descricao {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* --- INFORMAÇÕES DO ESPORTE (ALINHADAS NA VERTICAL) --- */
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    /* Coloca uma informação abaixo da outra */
+    gap: 15px;
+    /* Espaçamento elegante entre as linhas */
+    margin-bottom: 30px;
+}
+
+.info-grid p {
+    color: #ffffff;
+    /* Cor do texto (ex: Flávio, Caio) */
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    /* Alinha o ícone e o texto perfeitamente no meio */
+}
+
+/* O TRUQUE MÁGICO DO ALINHAMENTO */
+.info-grid p i {
+    color: var(--cor-ciano-neon);
+    font-size: 1.3rem;
+    width: 30px;
+    /* Obriga todos os ícones a terem a mesma largura */
+    text-align: center;
+    /* Centraliza o ícone dentro desse espaço */
+    margin-right: 10px;
+    /* Empurra o texto um pouco para a direita */
+}
+
+/* Destaca as palavras "Treinos:", "Coord:" etc. */
+.info-grid p strong {
+    color: var(--cor-ciano-neon);
+    margin-right: 8px;
+    font-weight: 700;
+}
+
+.bloco-jogos {
+    background: rgba(38, 228, 227, 0.05);
+    border-left: 3px solid var(--cor-ciano-neon);
+    padding: 15px 20px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 30px;
+}
+
+.bloco-jogos h3 {
+    color: var(--cor-ciano-neon);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lista-jogos {
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.lista-jogos li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.lista-jogos li:last-child {
+    border-bottom: none;
+}
+
+.data-jogo {
+    font-weight: 900;
+    color: #00ff88;
+}
+
+.btn-participar {
+    margin-top: auto;
+    background: transparent;
+    color: var(--cor-ciano-neon);
+    border: 2px solid var(--cor-ciano-neon);
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-participar:hover {
+    background: var(--cor-ciano-neon);
+    color: var(--cor-preto-puro);
+    box-shadow: 0 0 20px rgba(38, 228, 227, 0.5);
+}
+
+/* =========================================
+   14. ESTILIZAÇÃO DA LOJA (FLEXBOX) E MODAL
+   ========================================= */
+
+/* --- GRID DA LOJA --- */
+.grid-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Centraliza sempre, seja 1, 2 ou 10 produtos */
+    gap: 50px;
+    /* Espaço generoso entre os cards */
+    margin-top: 50px;
+    width: 100%;
+}
+
+.card-produto {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(38, 228, 227, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    /* Aumentado para o cartão ficar mais imponente */
+    margin: 0 auto;
+}
+
+.card-produto:hover {
+    border-color: var(--cor-ciano-neon);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(38, 228, 227, 0.2);
+}
+
+/* --- IMAGENS E MINIATURAS DA LOJA --- */
+.imagem-produto {
+    background: #0a0a0a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagem-produto img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.imagem-produto img.foto-destaque {
+    cursor: zoom-in;
+}
+
+.galeria-thumbnails {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Ajuste forçado para garantir que as miniaturas não amassam */
+.galeria-thumbnails .thumb {
+    width: 60px !important;
+    height: 60px !important;
+    flex-shrink: 0 !important;
+    /* O SEGREDO: Impede que o CSS esmague a foto */
+    object-fit: cover !important;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #1a1a1a;
+    opacity: 0.5;
+    /* Escurece os itens não selecionados */
+}
+
+.galeria-thumbnails .thumb:hover,
+.galeria-thumbnails .thumb.ativo {
+    opacity: 1;
+    border-color: var(--cor-ciano-neon);
+    transform: translateY(-3px);
+}
+
+/* --- INFORMAÇÕES DO PRODUTO --- */
+.info-produto {
+    padding: 25px;
+    text-align: center;
+}
+
+.info-produto h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.preco {
+    color: var(--cor-ciano-neon);
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.btn-comprar {
+    background: var(--cor-ciano-neon);
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 900;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-comprar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(38, 228, 227, 0.5);
+}
+
+/* --- SETAS E MODAL (LIGHTBOX) --- */
+.seta-modal {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+    transition: 0.3s;
+    z-index: 10000;
+}
+
+.seta-modal:hover {
+    color: var(--cor-ciano-neon);
+}
+
+.seta-esquerda {
+    left: 5%;
+}
+
+.seta-direita {
+    right: 5%;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    max-width: 90%;
+    max-height: 90%;
+    border: 2px solid var(--cor-ciano-neon);
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(38, 228, 227, 0.4);
+    animation: zoomIn 0.3s ease;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fechar-modal:hover {
+    color: var(--cor-ciano-neon);
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   15. PÁGINA DE MEMBROS (LAYOUT HORIZONTAL)
+   ========================================= */
+.grid-membros-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Centraliza os cartões na tela */
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* O Cartão Horizontal Compacto (AGORA COM ALTURA TRAVADA) */
+.card-membro-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: calc(50% - 15px);
+    min-width: 420px;
+    height: 320px;
+    /* MÁGICA 1: Altura fixa para todos os cartões ficarem simétricos */
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-ciano-neon);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-membro-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(38, 228, 227, 0.2);
+}
+
+/* --- Lado Esquerdo: Foto com Nome Overlay --- */
+.membro-foto-lateral {
+    width: 40%;
+    /* A foto ocupa 40% do cartão */
+    position: relative;
+    background: #000;
+}
+
+.membro-foto-lateral img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Degradê para o texto ciano não sumir em fotos claras */
+    mask-image: linear-gradient(to top, transparent 10%, black 50%);
+    -webkit-mask-image: linear-gradient(to top, transparent 10%, black 50%);
+    /* Efeito P/B que ganha cor no Hover */
+    filter: grayscale(100%) brightness(0.8);
+    transition: filter 0.5s ease;
+}
+
+.card-membro-horizontal:hover .membro-foto-lateral img {
+    filter: grayscale(0%) brightness(1);
+}
+
+/* Nome em cima da foto, igual à palavra "BASQUETE" do seu print */
+.nome-overlay {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: var(--cor-ciano-neon);
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1), 0 0 15px rgba(38, 228, 227, 0.8);
+    padding: 0 10px;
+}
+
+/* --- Lado Direito: Informações e Lista --- */
+.membro-info-lateral {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Alinha o texto por cima */
+    overflow-y: auto;
+    /* MÁGICA 2: Se o texto for gigante, cria uma barra de rolagem interna */
+}
+
+/* Estilizando a barra de rolagem para ficar em Neon (Exclusivo da Atlética!) */
+.membro-info-lateral::-webkit-scrollbar {
+    width: 6px;
+}
+
+.membro-info-lateral::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.membro-info-lateral::-webkit-scrollbar-thumb {
+    background: var(--cor-ciano-neon);
+    border-radius: 10px;
+}
+
+.membro-info-lateral ul {
+    list-style: none;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.membro-info-lateral ul li {
+    margin-bottom: 8px;
+}
+
+/* Títulos em Branco (Ex: CARGO:) */
+.membro-info-lateral ul li strong {
+    color: white;
+    margin-right: 5px;
+}
+
+/* Bolinha neon da lista */
+.membro-info-lateral ul li::before {
+    content: "•";
+    color: var(--cor-ciano-neon);
+    margin-right: 8px;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    line-height: 0;
+}
+
+/* Redes Sociais embaixo */
+.redes-sociais-lateral {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.redes-sociais-lateral a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.8rem;
+    transition: 0.3s ease;
+}
+
+.redes-sociais-lateral a:hover {
+    color: var(--cor-ciano-neon);
+    transform: scale(1.1);
+}
+
+/* --- Responsividade Inteligente --- */
+@media (max-width: 1050px) {
+
+    /* Em tablets ou ecrãs divididos, volta a ficar um por linha */
+    .card-membro-horizontal {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* No telemóvel, a foto vai para cima, o texto para baixo e a altura é libertada */
+    .card-membro-horizontal {
+        flex-direction: column;
+        height: auto;
+        /* MÁGICA 3: Liberta a altura para o layout do telemóvel */
+        max-height: 600px;
+        /* Impede que fique absurdamente gigante */
+    }
+
+    .membro-foto-lateral,
+    .membro-info-lateral {
+        width: 100%;
+    }
+
+    .membro-foto-lateral {
+        height: 250px;
+    }
+}
+
+.btn-sutil {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cor-ciano-neon);
+    background: transparent;
+    border: 1px solid rgba(38, 228, 227, 0.3);
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-sutil:hover {
+    border-color: var(--cor-ciano-neon);
+    background: rgba(38, 228, 227, 0.05);
+    box-shadow: 0 0 12px rgba(38, 228, 227, 0.3);
+    transform: translateY(-1px);
+    color: white;
+}
+
+/* =========================================
+   16. FORMULÁRIOS E INPUTS NEON (CONTATO)
+   ========================================= */
+.input-neon {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(38, 228, 227, 0.3);
+    color: white;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: block;
+    /* Garante que ocupa a linha toda */
+}
+
+/* Efeito de foco quando a pessoa clica para digitar */
+.input-neon:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.8);
+    border-color: var(--cor-ciano-neon);
+    box-shadow: 0 0 15px rgba(38, 228, 227, 0.4);
+}
+
+/* Muda a cor do texto de placeholder (ex: "Digite seu nome...") */
+.input-neon::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================
+    17. RESPONSIVIDADE
+   ========================================= */
+
+/* Header */
+
+/* Botão invisível no Desktop */
+.btn-mobile-nav {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--cor-ciano-neon);
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+/* Regras aplicadas APENAS em ecrãs menores que 900px (Tablets e Telemóveis) */
+@media (max-width: 900px) {
+
+    /* 1. A MÁGICA: Desliga a "tesoura" (clip-path) do desktop que estava a cortar o menu! */
+    #menu-superior {
+        clip-path: none !important;
+        padding: 20px 0 !important;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .nav-flex {
+        padding: 0 25px;
+    }
+
+    .btn-mobile-nav {
+        display: block;
+        position: relative;
+        z-index: 2001;
+        /* Fica acima da cortina */
+    }
+
+    /* 2. A Cortina Inteira */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s ease-in-out;
+        z-index: 2000;
+
+        /* 3. A BLINDAGEM: Bloqueia os efeitos de transparência do desktop */
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+    }
+
+    .nav-links.menu-mobile-ativo {
+        right: 0;
+    }
+
+    /* 4. Aumenta os botões para facilitar o toque */
+    .nav-btn {
+        font-size: 1.2rem;
+        width: 100%;
+        min-width: 250px;
+        max-width: 300px;
+        padding: 15px;
+        display: block;
+        /* Garante que os links não fiquem esmagados */
+    }
+
+    /* 5. A BALA DE PRATA: Esconde o botão de scroll do Desktop! */
+    .menu-toggle-btn {
+        display: none !important;
+    }
+}
+
+/* Home Page */
+
+/* Regras para Ecrãs Médios e Pequenos (Tablets e Telemóveis) */
+@media (max-width: 768px) {
+
+    /* 1. Ajuste das Tipografias (Para não saltarem do ecrã) */
+    .titulo-principal-vazado {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .subtitulo-branco-glow {
+        font-size: 1.8rem;
+    }
+
+    .container-centralizado {
+        padding: 30px 20px;
+        /* Reduz as margens gigantes do computador */
+    }
+
+    /* 2. O Cartão de Destaque (Empilha a Data e a Informação) */
+    #destaque-home-container>div {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px !important;
+    }
+
+    #destaque-home-container .data-evento {
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-bottom: 15px !important;
+        margin-bottom: 15px !important;
+        width: 100%;
+    }
+
+    #destaque-home-container .info-evento {
+        text-align: center !important;
+        width: 100%;
+    }
+
+    /* Centraliza os ícones de Relógio e Mapa */
+    #destaque-home-container .info-evento p {
+        justify-content: center;
+    }
+
+    /* 3. Adaptação dos Treinos e Produtos */
+    .mini-card-treino {
+        width: 100%;
+        /* Ocupa a largura toda do telemóvel */
+        flex-direction: column;
+        /* Empilha a data em cima e info em baixo */
+        text-align: center;
+    }
+
+    .treino-data {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-right: 0;
+        margin-right: 0;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .treino-status {
+        margin-left: 0;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .card-produto-home {
+        width: 100%;
+        max-width: 350px;
+        /* Impede que fique gigante num tablet */
+        height: 400px;
+        /* Reduz um pouco a altura para caber melhor na tela */
+        margin: 0 auto;
+        /* Centraliza perfeitamente */
+    }
+}
+
+/* Página de Produtos */
+
+@media (max-width: 768px) {
+
+    /* 1. O Filtro de Ordenação (Ajuste Anti-Esmagamento) */
+    /* O `!important` anula a largura de 250px que estava no HTML */
+    #filtro-ordenacao {
+        width: 170px !important;
+        font-size: 0.85rem;
+        padding: 8px 10px !important;
+    }
+
+    /* 2. O Layout da Grade (Aproxima os produtos) */
+    .grid-produtos {
+        gap: 30px;
+        /* Reduz o buraco gigante entre produtos */
+        margin-top: 10px;
+    }
+
+    /* 3. O Cartão do Produto (Permite que respire na largura) */
+    .card-produto {
+        width: 100%;
+        max-width: 100%;
+        /* Ocupa a largura inteira do telemóvel */
+        border-radius: 12px;
+    }
+
+    /* 4. A Imagem Principal (Reduz a altura para caber melhor na tela) */
+    .imagem-produto img.foto-destaque {
+        height: 220px !important;
+        /* No desktop era 250px */
+    }
+
+    /* 5. A Galeria de Miniaturas (Deixa-as mais compactas) */
+    .galeria-thumbnails {
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .galeria-thumbnails .thumb {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    /* 6. Textos e Botão de Comprar (Ajustes de leitura) */
+    .info-produto {
+        padding: 20px;
+    }
+
+    .info-produto h3 {
+        font-size: 1.2rem;
+    }
+
+    .preco {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .btn-comprar {
+        padding: 15px 20px;
+        /* Deixa o botão mais alto e fácil de tocar com o polegar */
+    }
+}
+
+/* Página de Esportes */
+
+@media (max-width: 768px) {
+
+    /* 1. O Bloco Principal (Empilhar Foto e Informação) */
+    .bloco-esporte {
+        flex-direction: column;
+        /* Coloca a imagem em cima e o texto em baixo */
+        padding: 20px;
+        /* Reduz o espaçamento interno para ganhar espaço de ecrã */
+        gap: 20px;
+    }
+
+    /* 2. Ajuste da Foto de Destaque */
+    .esporte-galeria .foto-destaque {
+        height: 250px !important;
+        /* Evita que a foto ocupe a tela inteira do celular */
+    }
+
+    /* 3. Textos (Melhorar a leitura) */
+    .texto-descricao {
+        text-align: left;
+        /* Texto justificado no telemóvel pode criar 'buracos' brancos feios */
+        font-size: 0.95rem;
+    }
+
+    /* 4. Bloco de Próximos Jogos/Histórico (Aba Esportes) */
+    .bloco-jogos {
+        padding: 15px;
+        border-radius: 10px;
+        /* Arredonda todos os cantos */
+        border-left: none;
+        /* Tira a barra lateral néon... */
+        border-top: 3px solid var(--cor-ciano-neon);
+        /* ...e coloca-a no topo, como um cartão! */
+    }
+
+    /* 5. Lista de Eventos Genérica (Aba Eventos e aba Home) */
+    .item-evento {
+        flex-direction: column;
+        text-align: center;
+        border-left: none;
+        border-top: 4px solid var(--cor-ciano-neon);
+        /* Detalhe néon no topo */
+        border-radius: 12px;
+        padding: 20px;
+    }
+
+    /* Evento que já acabou perde a cor forte no topo */
+    .item-evento.item-passado {
+        border-top: 4px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Separa a Data (Em cima) da Informação (Em baixo) */
+    .data-evento {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-right: 0;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    /* A Etiqueta "Aberto" ou "Encerrado" centralizada no fundo do cartão */
+    .status-evento {
+        margin-left: 0;
+        margin-top: 15px;
+        display: inline-block;
+    }
+}
+
+/* Página de Membros */
+
+@media (max-width: 768px) {
+
+    /* 1. O Cartão (Liberta as amarras do Desktop) */
+    .card-membro-horizontal {
+        flex-direction: column !important;
+        /* Empilha foto e texto */
+        width: 100% !important;
+        min-width: 0 !important;
+        /* A MÁGICA: Impede que o cartão seja maior que o telemóvel! */
+        height: auto !important;
+        /* Liberta a altura travada de 320px */
+        max-height: none !important;
+    }
+
+    /* 2. A Foto de Topo */
+    .membro-foto-lateral {
+        width: 100% !important;
+        height: 280px !important;
+        /* Altura perfeita para dar destaque ao membro */
+    }
+
+    /* 3. A Caixa de Texto */
+    .membro-info-lateral {
+        width: 100% !important;
+        padding: 25px !important;
+        overflow-y: visible !important;
+        /* Desliga o scroll interno, a pessoa rola a página inteira agora */
+    }
+
+    /* 4. Ajustes nos Textos e Redes Sociais */
+    .membro-info-lateral ul {
+        font-size: 0.95rem;
+        /* Aumenta ligeiramente a letra para melhor leitura no telemóvel */
+        margin-bottom: 25px;
+    }
+
+    .redes-sociais-lateral {
+        justify-content: center;
+        /* Centraliza os ícones do Instagram/LinkedIn no fundo do cartão */
+        margin-top: 15px;
+    }
+}
+
+/* Página de Eventos */
+
+@media (max-width: 768px) {
+
+    /* 1. Ajuste da Linha Neon Divisória */
+    .linha-divisoria-neon {
+        margin: 40px 0 30px 0 !important;
+        /* Reduz o espaçamento excessivo entre as seções */
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--cor-ciano-neon), transparent);
+    }
+
+    /* 2. Centralização das descrições */
+    /* Diferente dos Esportes, aqui o texto de apoio fica melhor centralizado no mobile */
+    .secao-interna .texto-descricao {
+        text-align: center !important;
+        margin-bottom: 30px !important;
+        padding: 0 10px;
+    }
+
+    /* 3. Ajuste de margem das listas */
+    .lista-eventos,
+    .eventos-passados {
+        gap: 15px;
+        /* Deixa os cartões um pouco mais próximos uns dos outros */
+        margin-bottom: 30px;
+    }
+
+    /* 4. Subtítulo de Eventos Passados */
+    .subtitulo-branco-glow {
+        margin-top: 30px !important;
+        margin-bottom: 20px !important;
+        font-size: 1.6rem !important;
+    }
+}
+
+/* Página de Login */
+
+@media (max-width: 768px) {
+    .container-login {
+        width: 90% !important;
+        max-width: 400px;
+        margin: 100px auto !important; /* Dá espaço para o Header fixo */
+        padding: 30px 20px !important;
+    }
+
+    .form-login h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .btn-login {
+        width: 100% !important;
+        padding: 15px !important;
+    }
+}
+
+/* Página do Painel Administrativo */
+
+@media (max-width: 768px) {
+    /* 1. Layout do Painel (Sidebar e Conteúdo) */
+    .painel-wrapper {
+        flex-direction: column !important; /* Sidebar vai para cima, Conteúdo para baixo */
+    }
+
+    .sidebar-painel {
+        width: 100% !important;
+        height: auto !important;
+        padding: 20px !important;
+        border-right: none !important;
+        border-bottom: 2px solid var(--cor-ciano-neon) !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .sidebar-painel a {
+        font-size: 0.8rem !important;
+        padding: 10px 15px !important;
+    }
+
+    /* 2. O Conteúdo Principal */
+    .conteudo-painel {
+        padding: 20px 15px !important;
+    }
+
+    /* 3. A MÁGICA DAS TABELAS: Scroll Horizontal */
+    /* Envolva suas tabelas em uma <div class="tabela-responsiva"> no PHP se ainda não tiver */
+    .tabela-responsiva {
+        width: 100%;
+        overflow-x: auto; /* Cria a barra de rolagem lateral na tabela */
+        margin-top: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .tabela-admin {
+        min-width: 600px; /* Garante que a tabela não esprema as colunas */
+        font-size: 0.85rem !important;
+    }
+
+    /* 4. Formulários de Cadastro no Painel */
+    .form-admin-grid {
+        grid-template-columns: 1fr !important; /* Tudo em uma coluna no celular */
+        gap: 15px !important;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr !important; /* Cards de estatísticas empilhados */
+    }
+}

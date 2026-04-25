@@ -1,0 +1,77 @@
+<section class="secao-interna" style="padding-top: 40px;">
+    <div class="container-centralizado">
+        
+        <h1 class="titulo-principal-vazado" style="font-size: 3.5rem; margin-bottom: 10px;">FALE CONOSCO</h1>
+        <p class="texto-descricao" style="text-align: center; margin-bottom: 50px;">Tem alguma dúvida, quer fechar uma parceria ou jogar um amistoso? Envie-nos uma mensagem!</p>
+
+        <div class="bloco-esporte" style="max-width: 600px; margin: 0 auto; flex-direction: column;">
+            
+            <form id="form-contato" action="/assets/api/enviar_email.php" method="POST">
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="color: var(--cor-ciano-neon); font-weight: 700; font-size: 0.9rem;">Nome Completo</label>
+                    <input type="text" name="nome" class="input-neon" required style="margin-top: 5px;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="color: var(--cor-ciano-neon); font-weight: 700; font-size: 0.9rem;">Seu E-mail</label>
+                    <input type="email" name="email" class="input-neon" required style="margin-top: 5px;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="color: var(--cor-ciano-neon); font-weight: 700; font-size: 0.9rem;">Assunto (Ex: Parceria, Dúvida, Loja)</label>
+                    <input type="text" name="assunto" class="input-neon" required style="margin-top: 5px;">
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <label style="color: var(--cor-ciano-neon); font-weight: 700; font-size: 0.9rem;">Mensagem</label>
+                    <textarea name="mensagem" class="input-neon" rows="6" required style="margin-top: 5px; resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-participar spotlight-target" style="width: 100%; cursor: pointer;">ENVIAR MENSAGEM</button>
+                
+                <div id="resposta-email" style="display: none; text-align: center; margin-top: 15px; font-weight: bold;"></div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('form-contato').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const btn = form.querySelector('button');
+        const divResposta = document.getElementById('resposta-email');
+
+        btn.innerText = 'A ENVIAR...';
+        btn.disabled = true;
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            });
+
+            const dados = await response.json();
+            divResposta.style.display = 'block';
+
+            if (dados.sucesso) {
+                divResposta.style.color = '#00ff88';
+                divResposta.innerText = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+                form.reset();
+            } else {
+                divResposta.style.color = '#ff4444';
+                divResposta.innerText = 'Erro: ' + dados.erro;
+            }
+        } catch (erro) {
+            divResposta.style.display = 'block';
+            divResposta.style.color = '#ff4444';
+            divResposta.innerText = 'Erro de comunicação com o servidor.';
+        } finally {
+            btn.innerText = 'ENVIAR MENSAGEM';
+            btn.disabled = false;
+        }
+    });
+</script>

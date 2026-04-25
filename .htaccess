@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+php_value date.timezone America/Sao_Paulo
+
+# --- REGRAS DE SEGURANÇA (Adicionadas após teste de vulnerabilidade) ---
+
+# Impede a listagem de arquivos em pastas vazias
+Options -Indexes
+
+<IfModule mod_headers.c>
+    # Previne que o site seja clonado em Iframes (Clickjacking)
+    Header always append X-Frame-Options "SAMEORIGIN"
+    
+    # Impede leitura forçada de arquivos (proteção extra contra XSS)
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Define de onde o site pode carregar recursos de forma segura
+    Header set Content-Security-Policy "default-src 'self' https: 'unsafe-inline';"
+</IfModule>

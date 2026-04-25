@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlética de Computação UVA</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/ui/mascote_favicon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <header id="menu-superior" class="spotlight-target">
+        <nav class="container nav-flex">
+            <div class="logo-header">
+                <img src="assets/img/ui/logo_atletica.svg" alt="Logo Atlética UVA">
+            </div>
+
+            <button id="btn-menu-toggle" class="menu-toggle-btn spotlight-target">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#" class="nav-btn spotlight-target" data-page="home">Início</a></li>
+                <li><a href="#" class="nav-btn spotlight-target" data-page="esportes">Esportes</a></li>
+                <li><a href="#" class="nav-btn spotlight-target" data-page="produtos">Produtos</a></li>
+                <li><a href="#" class="nav-btn spotlight-target" data-page="membros">Membros</a></li>
+                <li><a href="#" class="nav-btn spotlight-target" data-page="eventos">Eventos</a></li>
+            </ul>
+
+            <button id="btn-mobile-nav" class="btn-mobile-nav">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main id="conteudo-dinamico">
+    </main>
+
+    <footer class="rodape-principal spotlight-target">
+        <div class="container">
+            <div class="footer-links">
+
+                <a href="https://www.instagram.com/atleticacomputacaouva/" target="_blank" class="social-item"
+                    style="text-decoration: none; color: inherit;">
+                    <i class="ph-light ph-instagram-logo"></i>
+                    <span>@ATLETICACOMPUTACAOUVA</span>
+                </a>
+
+                <a href="mailto:atleticacomputacaouva@gmail.com" class="social-item"
+                    style="text-decoration: none; color: inherit;">
+                    <i class="ph-light ph-envelope"></i>
+                    <span>ATLETICACOMPUTACAOUVA@GMAIL.COM</span>
+                </a>
+
+                <a href="https://chat.whatsapp.com/Jm3Fphmd5zY5Vq7Lyg6QRr" target="_blank" class="social-item"
+                    style="text-decoration: none; color: inherit;">
+                    <i class="ph-light ph-whatsapp-logo"></i>
+                    <span>COMUNIDADE DEXTEMIDOS</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href=" https://chat.whatsapp.com/Lrg8lJWu1JyImPPvgRR1Gy" target="_blank" class="social-item"
+                    style="text-decoration: none; color: inherit;">
+                    <i class="ph-light ph-whatsapp-logo"></i>
+                    <span>COMUNIDADE ACADÊMICA 1</span>
+                </a>
+                
+             	<a href="https://chat.whatsapp.com/DJ91JTlz8HLKxZ7PlzjsSC" target="_blank" class="social-item"
+                    style="text-decoration: none; color: inherit;">
+                    <i class="ph-light ph-whatsapp-logo"></i>
+                    <span>COMUNIDADE ACADÊMICA 2</span>
+                </a>
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                <button class="btn-mini-evento spotlight-target" data-page="contato"
+                    style="padding: 10px 30px; font-size: 1rem;">
+                    FALE CONOSCO
+                </button>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2026 Dextemidos - Atlética de Computação UVA</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-imagem" class="modal-overlay" style="display: none;">
+        <span class="fechar-modal">&times;</span>
+
+        <span class="seta-modal seta-esquerda">&#10094;</span>
+        <img class="modal-conteudo" id="img-ampliada">
+        <span class="seta-modal seta-direita">&#10095;</span>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

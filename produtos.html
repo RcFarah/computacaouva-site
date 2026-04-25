@@ -1,0 +1,52 @@
+<section class="secao-produtos">
+    <div class="container centralizado">
+        <h2 class="subtitulo-neon">NOSSOS PRODUTOS</h2>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 40px; margin-bottom: 30px; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <label for="filtro-ordenacao"
+                    style="color: var(--cor-ciano-neon); font-weight: bold; font-size: 0.9rem; text-transform: uppercase;">
+                    <i class="ph-bold ph-funnel"></i> Ordenar:
+                </label>
+                <select id="filtro-ordenacao" class="input-neon"
+                    style="width: 250px; cursor: pointer; padding: 10px 15px; border-radius: 30px;">
+                    <option value="az">Ordem Alfabética (A-Z)</option>
+                    <option value="za">Ordem Alfabética (Z-A)</option>
+                    <option value="menor-preco">Menor Preço</option>
+                    <option value="maior-preco">Maior Preço</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid-produtos" id="lista-produtos">
+
+            <div class="card-produto">
+                <div class="imagem-placeholder">IMG</div>
+                <div class="info-produto">
+                    <h3>Camisa Oficial 2026</h3>
+                    <p class="preco">R$ 65,00</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <div class="imagem-placeholder">IMG</div>
+                <div class="info-produto">
+                    <h3>Caneca Preta Matte</h3>
+                    <p class="preco">R$ 35,00</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <div class="imagem-placeholder">IMG</div>
+                <div class="info-produto">
+                    <h3>Tirante Neon</h3>
+                    <p class="preco">R$ 15,00</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
