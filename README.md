@@ -47,7 +47,7 @@ Como foco em robustez e integridade, o projeto implementa:
     * `Content-Security-Policy` para controle de fontes de recursos seguras.
 * **Isolamento de Credenciais:** Separação de dados sensíveis em arquivo de configuração não versionado.
 
-## Licença
+## 📜 Licença
 
 © 2026 Rodrigo Farah / Atlética Computação UVA.
 Todos os direitos reservados. É proibida a cópia ou reprodução deste código sem autorização prévia.
