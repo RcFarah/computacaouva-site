@@ -6,5 +6,6 @@ define('DB_USER', 'usuario');
 define('DB_PASS', 'senha_aqui');
 
 // Para configurar o envio de email para o SEU email, mude aqui:
+define('FORMSPREE_URL', 'seu_link_formspree_aqui');
 define('EMAIL_ADMIN', 'seu_email@aqui.com');
 ?>
